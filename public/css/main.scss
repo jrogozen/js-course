@@ -1,0 +1,201 @@
+//colors 
+
+$sidebar: #EEEEEE;
+$contentbg: #515151;
+$content: #FFF;
+$link: #00B4FF;
+$light-border: #FFF;
+$highlight: #292929;
+
+//movie
+#now-playing {
+
+    img {
+      width: 185px;
+      height: 264px;
+    }
+
+}
+
+.movie-list {
+  list-style: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+.lists-container {
+  padding:40px 0;
+  .list {
+    text-align: left;
+    padding: 20px 10px;
+    border-top: 2px solid $light-border;
+    &:first-child {
+      border: 0;
+    }
+  }
+}
+
+.sidebar {
+  background: $sidebar;
+  border-radius: 7px;
+}
+
+.view-movie-container {
+  .view-movie-bg {
+    padding: 40px 0;
+    background: $highlight;
+    color: $content;
+  }
+  .votes {
+    position: relative;
+    color: gold;
+    list-style: none;
+    margin-left: 0;
+  }
+  .small-info {
+    margin-bottom: 16px;
+  }
+  #view-movie:after {
+    content: " ";
+    clear: both;
+    visibility: hidden;
+    display: block;
+  }
+  .movie-media {
+    text-align: center;
+    img {
+      border: 4px solid white;
+    }
+  }
+}
+
+.now-playing-container {
+  background: $sidebar;
+  padding: 20px;
+}
+
+
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+  a {
+    color: $link;
+  }
+}
+
+body, body p {
+  font-size: 18px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+  color: $link;
+}
+
+h4 {
+  font-size: 32px;
+}
+
+#top-bar {
+  .logo, .search {
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+  .logo {
+    font-size: 36px;
+  }
+  .search {
+    text-align: right;
+  }
+}
+
+
+
+.slick-prev, .slick-next {
+  height: 304px;
+  background: $sidebar;
+  width: 25px;
+  position: absolute;
+  top: -20px;
+  text-indent: -999999px;
+  &:hover {
+    background: white;
+  }
+}
+.slick-prev {
+  left: -30px;
+}
+.slick-next {
+  right: -30px;
+}
+
+#filtered-list {
+  h5 {
+    margin-top: 10px;
+    height: 50px;
+    overflow: hidden;
+  }
+  img {
+    height: 272px;
+  }
+}
+
+.search-results-container {
+  position: relative;
+  &:after {
+    content: " ";
+    clear: both;
+    visibility: hidden;
+    display: block;
+  }
+  ul {
+    z-index: 10;
+    background: white;
+    position: absolute;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 450px;
+    overflow: auto;
+    width: 100%;  
+    border: 2px solid $sidebar;
+
+    li {
+      padding: 15px;
+      width: 100%;
+      border-top: 1px solid $sidebar;
+      &:first-child {
+        border: 0;
+      }
+      &:after {
+        content: " ";
+        clear: both;
+        visibility: hidden;
+        display: block;
+      }
+      .img-thumb {
+        background-size: 100% !important;
+        width: 50px;
+        height: 75px;
+        float: left;
+      }
+      .title {
+        overflow: hidden;
+        text-align: right;
+      }
+      &:hover {
+        background: $link;
+      }
+    }
+  }
+}
+
+.sidebar {
+  margin-bottom: 40px;
+}
+
+
+.copy {
+  background: $sidebar;
+  padding: 10px 20px;
+}
