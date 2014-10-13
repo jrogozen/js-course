@@ -22,7 +22,7 @@ $(document).ready (function () {
     });
   };
 
-  var playQuiz = function (quiz_id, n) {
+  var playQuiz = function (quiz_id, n, score) {
 
 
     $.get("/quizzes/" + quiz_id, function (data) {
@@ -51,6 +51,7 @@ $(document).ready (function () {
               // process answer
               $.get("/quizzes/" + quiz_id + "/questions/" + data[n].id + "/check?answer=" + answer , function (data) {
                if (data.correct === true) {
+                  score ++;
                   $('.answer-validation').append("<p>Correct!</p>");
                 } else if (data.correct === false) {
                   $('.answer-validation').append("<p>Incorrect</p>");
@@ -61,8 +62,11 @@ $(document).ready (function () {
                   if (n < data.length-1) {
                     setTimeout(function () {
                       n ++;
-                      playQuiz(quiz_id, n);
+                      playQuiz(quiz_id, n, score);
                     }, 1000);
+                  } else {
+                    // show score
+                    $('.score-summary').append("<p>You got " + score + " out of " + data.length + " questions correct.</p>")
                   }
                 });
 
@@ -80,7 +84,7 @@ $(document).ready (function () {
     // 
     var quiz_id = $("select option:selected").data('quiz-id');
     $('#questions-container').empty();
-    playQuiz(quiz_id, 0);
+    playQuiz(quiz_id, 0, 0);
   });
 
 });
