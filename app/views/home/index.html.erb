@@ -20,14 +20,14 @@
 
 <script type="text/template" class="quiz-question">
   <h2><%%=this.question%></h2>
-  <ul>
-    <%% _.each(this.choices, function(choice) {%>
-      <li><%%= choice %></li>
-    <%% }); %>
-  </ul>
+
   <form class="answer-form">
-    <input type="text" placeholder="answer here..." name="answer" id="answer" class="answer"/>
+    <%% _.each(this.choices, function(choice) {%>
+      <input type="radio" value="<%%= choice %>" name="answer" data-answer="<%%= choice %>"><%%= choice %></br>
+    <%% }); %>
+    <input type="submit" value="submit" class="answer" id="answer">
   </form>
+
   <div class="answer-validation"></div>
   <div class="score-summary"></div>
 </script>
