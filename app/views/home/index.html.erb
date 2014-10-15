@@ -1,34 +1,40 @@
 <h2>Quizzy Quiz</h2>
 
-<div id="quiz-list-container">
-  <form id="quiz-select">
-    <select class="target">
-    </select>
+<div class="list-quizzes">
+  <form class="select-quiz-form">
+    <select></select>
+    <input type="submit" value="submit"/>
+  <form>
+</div>
+
+<div class="quiz">
+</div>
+
+<div class="quiz-question">
+  <form class="questions-form">
   </form>
 </div>
 
-<div id="questions-container">
-</div>
 
-<script type="text/template" class="quiz-list">
-  <option data-quiz-id="<%%= quiz.id %>"><%%= quiz.title %></option>
+
+<script type="text/template" class="quiz-template">
+  <h3><%%= title %></h3>
 </script>
 
-<script type="text/template" class="quiz">
-  <div class="quiz-info"><%%= quiz.title %></div>
+<script type="text/template" class="all-quizzes-template">
+  <option data-quiz-id="<%%= id %>"><%%= title %></option>
 </script>
 
-<script type="text/template" class="quiz-question">
-  <h2><%%=this.question%></h2>
+<script type="text/template" class="question-template">
+  <%%= question %>
 
-  <form class="answer-form">
-    <%% _.each(this.choices, function(choice) {%>
-      <input type="radio" value="<%%= choice %>" name="answer" data-answer="<%%= choice %>"><%%= choice %></br>
-    <%% }); %>
-    <input type="submit" value="submit" class="answer" id="answer">
+  <form class="questions-form">
+    <%% for (var choice in choices ) { %>
+      <input type="radio" data-question-id="<%%= id %>" value="<%%= choices[choice] %>"><%%= choices[choice] %><br>
+    <%% } %>
+
+    <input type="submit" value="submit answer">
   </form>
-
-  <div class="answer-validation"></div>
-  <div class="score-summary"></div>
+  
 </script>
 
